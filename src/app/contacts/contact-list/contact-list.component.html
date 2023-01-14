@@ -1,3 +1,58 @@
-<div class="row">
+<!-- <div class="container ">
+<div class="row" >
+    <div class="col-sm-4 primary panel  panel-default">
+        <div class="pull-left">
+           <h5>CONTACTS</h5>
+        </div>
+        <div class="pull-right">
+            <button class="btn btn-success"> add contact</button>
+        </div>
+
+        <table class="table">
+            <th>
+               <p> {{ contacts.name }}</p>
+              
+            </th>
+          </table>
+         </div>
     
+
+</div>
+
+</div> -->
+<div class="container">
+<div class="row">
+    <div class="col-sm-5">
+        <div class="pull-left">
+            <h5>CONTACTS</h5>
+         </div>
+         <div class="pull-right">
+             <button class="btn btn-success"> add contact</button>
+         </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-5">
+      <a
+        href="#"
+        class="list-group-item clearfix"
+        *ngFor="let contacts of contacts">
+        <div class="pull-left">
+          <h4 class="list-group-item-heading">{{ contacts.name}}</h4>
+          <p class="list-group-item-text">
+        </div>
+        <span class="pull-right">
+          <img
+            [src]="contacts.imageUrl"
+            alt="{{ contacts.name }}"
+            class="img-responsive"
+            style="max-height: 50px;">
+        </span>
+      </a>
+    
+    </div>
+<app-contact-details></app-contact-details>
+
+  </div>
 </div>
