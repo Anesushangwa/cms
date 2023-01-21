@@ -1,11 +1,11 @@
 <div class="container">
 <div class="row">
     <div class="col-md-5">
-        <h2>contact-list goes here</h2>
-
+       
+        <app-contact-list (selectedContactEven)=" selectedContact = $event "></app-contact-list>
     </div>
     <div class="col-md-4">
-        <h2>contact-details goes here</h2>
+        <app-contact-details *ngIf="selectedContact" [contacts] ="selectedContact"></app-contact-details>
     </div>
 </div>
 </div>

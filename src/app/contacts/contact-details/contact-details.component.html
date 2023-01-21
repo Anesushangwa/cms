@@ -1,19 +1,21 @@
-<div class="row">
 
-<div class="panel panel-default col-sm-5">
+
+
+<div class="panel panel-default ">
  
     <div class="panel-heading">
         <button type="button" class="btn btn-danger pull-right btn-xs">DELETE</button> 
         <button type="button" class="btn btn-primary pull-right btn-xs">EDIT</button>
+        <br>
         <!-- <h4 class="list-group-item-heading "  *ngFor="let contacts of contacts">{{ contacts.name}}</h4> -->
         <span >
-            <!-- <img
-            *ngFor="let contacts of contacts"
+            <img
+            
               [src]="contacts.imageUrl"
-              alt="{{ contacts.name }}"
+              alt="{{ contacts.imageUrl }}"
               class="img-responsive"
               style="max-height: 50px;">
-              -->
+             
               
           </span>
          
@@ -21,11 +23,11 @@
 
     </div>
     <div class="panel-body">
-      <p>Email:</p>
-      <p>Phone:</p>
+      <p>Email: <span> {{ contacts.email }}</span> </p>
+      <p>Phone: <span>{{ contacts.phone_Number }}</span></p>
     </div>
-  </div>
-  
+
+  <div>
  
-   
-</div>
+  
+

@@ -7,6 +7,11 @@ import { HeaderComponent } from './header.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
+import { ContactItemComponent } from './contacts/contact-item/contact-item.component';
+import { DocumentsComponent } from './documents/documents.component';
+import { MessageItemComponent } from './massages/message-item/message-item.component';
+import { MessageEditComponent } from './massages/message-edit/message-edit.component';
+import { MessageListComponent } from './massages/message-list/message-list.component';
 
 
 
@@ -17,6 +22,12 @@ import { ContactDetailsComponent } from './contacts/contact-details/contact-deta
     ContactsComponent,
     ContactListComponent,
     ContactDetailsComponent,
+    ContactItemComponent,
+    DocumentsComponent,
+    MessageItemComponent,
+    MessageEditComponent,
+    MessageListComponent
+   
    
    
 

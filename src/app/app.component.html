@@ -1,3 +1,7 @@
-<app-header></app-header>
-<app-contacts></app-contacts>
-<app-contact-list></app-contact-list>
+<app-header (selectedFeature)="switchView(selectedFeature: string)"></app-header>
+<div>
+    <app-documents *ngSwitchCase="documents"></app-documents>
+</div>
+<app-contacts *ngSwitchDefault></app-contacts>
+<!-- <app-contact-list></app-contact-list> -->
+
