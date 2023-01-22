@@ -1,7 +1,20 @@
-<app-header (selectedFeature)="switchView(selectedFeature: string)"></app-header>
-<div>
+<!-- <app-header (selectedFeatureEvent)="swithView($event)"></app-header>
+<div  class="container pull-left"   [ngSwitche]="selectedFeatures">
     <app-documents *ngSwitchCase="documents"></app-documents>
+    <app-message-list *ngSwitchCase="'messages'"></app-message-list>
+    <app-contacts *ngSwitchDefault></app-contacts>
+</div> -->
+
+<app-header (featureSelected)="onNavigate($event)"></app-header> 
+<div class="container">
+  <div class="row"> 
+      <div class="col-xs-12">
+          <app-contacts *ngIf="loadedFeature === 'contacts'"></app-contacts>
+          <app-documents *ngIf="loadedFeature === 'documents' "></app-documents>
+          <app-message-list *ngIf="loadedFeature === 'messages' "></app-message-list>        
+      </div>
+  </div>
 </div>
-<app-contacts *ngSwitchDefault></app-contacts>
+<router-outlet></router-outlet>
 <!-- <app-contact-list></app-contact-list> -->
 

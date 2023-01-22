@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +6,15 @@ import { Component, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  @Output() selectedFeatureEvent = new EventEmitter<string>();
+  // output and EventEmitter need to be import to avoid errors
+  // @Output() selectedFeatureEvent = new EventEmitter <string>();
 
-  onSelected(selectedEvent: string){
-    this.selectedFeatureEvent.emit(selectedEvent)
+  // onSelected(selectedEvent: string){
+  //   this.selectedFeatureEvent.emit(selectedEvent);
+  // }
+  @Output() featureSelected = new EventEmitter<string>();
+
+  onSelected(selectedEvent: string) {
+    this.featureSelected.emit(selectedEvent);
   }
-
 }
