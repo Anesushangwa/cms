@@ -10,7 +10,10 @@
               </div>
             <div class="panel-body">
             <div class="center-panel">
-                <!-- <app-document-list></app-document-list> -->
+              <app-document-item
+              *ngIf="selectedDocument"
+              [document]="selectedDocument"
+            ></app-document-item>
                 
             </div>
             </div>
@@ -18,7 +21,4 @@
             </div>
     </div>
   
-  <div class="col-md-4">
-    <!-- <app-document-detail></app-document-detail> -->
-  </div>
-  </div>
+  

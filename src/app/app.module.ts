@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header.component';
@@ -12,6 +13,10 @@ import { DocumentsComponent } from './documents/documents.component';
 import { MessageItemComponent } from './massages/message-item/message-item.component';
 import { MessageEditComponent } from './massages/message-edit/message-edit.component';
 import { MessageListComponent } from './massages/message-list/message-list.component';
+import { DocumentDetailComponent } from './documents/document-detail/document-detail.component';
+import { DocumentItemComponent } from './documents/document-item/document-item.component';
+import { DocumentListComponent } from './documents/document-list/document-list.component';
+import { DropdownDirective } from './header/dropDown.directive';
 
 
 
@@ -26,7 +31,11 @@ import { MessageListComponent } from './massages/message-list/message-list.compo
     DocumentsComponent,
     MessageItemComponent,
     MessageEditComponent,
-    MessageListComponent
+    MessageListComponent,
+    DocumentDetailComponent,
+    DocumentItemComponent,
+    DocumentListComponent,
+    DropdownDirective 
    
    
    
