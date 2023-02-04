@@ -17,6 +17,7 @@ import { DocumentDetailComponent } from './documents/document-detail/document-de
 import { DocumentItemComponent } from './documents/document-item/document-item.component';
 import { DocumentListComponent } from './documents/document-list/document-list.component';
 import { DropdownDirective } from './header/dropDown.directive';
+// import { ContactServiceComponent } from './contacts/contact.service.component';
 
 
 
@@ -35,7 +36,8 @@ import { DropdownDirective } from './header/dropDown.directive';
     DocumentDetailComponent,
     DocumentItemComponent,
     DocumentListComponent,
-    DropdownDirective 
+    DropdownDirective,
+    // ContactServiceComponent 
    
    
    

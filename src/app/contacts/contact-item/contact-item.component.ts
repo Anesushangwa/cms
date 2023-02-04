@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-// import { Contact }  from '../contact.model';
+import { Contact }  from '../contact.model';
 @Component({
   selector: 'app-contact-item',
   templateUrl: './contact-item.component.html',
@@ -11,7 +11,7 @@ export class ContactItemComponent {
 //     new Contact(2,'Anesu Barzee','barzeer@byui.edu',208-496-3768,'../assets/image/barzeer.jpg','null')
 
 // ];
-  @Input() contacts!: {contact_id: number, name: string,email: string,phone_Number: number,imageUrl:  string,group: string};
+  @Input() contacts!: Contact ;
  
  
 }

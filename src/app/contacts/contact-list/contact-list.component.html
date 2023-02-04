@@ -36,8 +36,12 @@
     
     <div class="col-sm-5">
       
-      
-      <app-contact-item (click)="onSelected(contacts)" *ngFor="let contacts of contacts" [contacts]="contacts"     ></app-contact-item>
+      <app-contact-item
+        *ngFor="let contact of contacts"
+        [contacts]="contact"
+        (click)="onSelected(contact)"
+      ></app-contact-item>
+      <!-- <app-contact-item (click)="onSelected(contacts)" *ngFor="let contacts of contacts" [contacts]="contacts"     ></app-contact-item> -->
       <br>
       <!-- <app-contact-details></app-contact-details> -->
     </div>
