@@ -21,4 +21,9 @@ ngOnInit(): void {
     this.contacts = this.contactService.getContact(params['id']);
   });
 }
+
+onDelete() {
+  this.contactService.deleteContact(this.contacts);
+  this.router.navigate(['../'], { relativeTo: this.route });
+}
 }
