@@ -27,7 +27,7 @@
             <h5>CONTACTS</h5>
          </div>
          <div class="pull-right">
-             <button class="btn btn-success"> add contact</button>
+             <button class="btn btn-success " routerLink="new"> add contact</button>
          </div>
     </div>
   </div>
@@ -39,7 +39,7 @@
       <app-contact-item
         *ngFor="let contact of contacts"
         [contacts]="contact"
-        (click)="onSelected(contact)"
+       
       ></app-contact-item>
       <!-- <app-contact-item (click)="onSelected(contacts)" *ngFor="let contacts of contacts" [contacts]="contacts"     ></app-contact-item> -->
       <br>

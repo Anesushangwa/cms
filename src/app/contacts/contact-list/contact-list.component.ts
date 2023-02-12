@@ -28,8 +28,9 @@ ngOnInit(): void {
 
 
 
-onSelected(contact:Contact ){
-  this.contactService.contactSelectedEvent.emit(contact);
+// onSelected(contact:Contact ){
+//   this.contactService.contactSelectedEvent.emit(contact);
 
-}
+// }
+
 }

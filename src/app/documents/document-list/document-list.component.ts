@@ -27,7 +27,7 @@ ngOnInit(): void {
   this.documents = this.documentService.getDocuments();
 }
 
-onSelectedDocument(document: Document) {
-  this.documentService.selectedDocumentEvent.emit(document);
-}
+// onSelectedDocument(document: Document) {
+//   this.documentService.selectedDocumentEvent.emit(document);
+// }
 }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 
@@ -17,6 +17,10 @@ import { DocumentDetailComponent } from './documents/document-detail/document-de
 import { DocumentItemComponent } from './documents/document-item/document-item.component';
 import { DocumentListComponent } from './documents/document-list/document-list.component';
 import { DropdownDirective } from './header/dropDown.directive';
+import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
+import { ContactsEditComponent } from './contacts/contacts-edit/contacts-edit.component';
+
+
 // import { ContactServiceComponent } from './contacts/contact.service.component';
 
 
@@ -37,6 +41,9 @@ import { DropdownDirective } from './header/dropDown.directive';
     DocumentItemComponent,
     DocumentListComponent,
     DropdownDirective,
+    DocumentEditComponent,
+    ContactsEditComponent,
+  
     // ContactServiceComponent 
    
    

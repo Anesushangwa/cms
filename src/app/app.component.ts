@@ -15,9 +15,9 @@ export class AppComponent {
   //     this.selectedFeature = selectedFeature;
   //   }
   // }
-  loadedFeature = 'contacts';
+  // loadedFeature = 'contacts';
 
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
-  }
+  // onNavigate(feature: string) {
+  //   this.loadedFeature = feature;
+  // }
 }
