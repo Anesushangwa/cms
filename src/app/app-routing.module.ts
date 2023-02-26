@@ -14,7 +14,7 @@ import {Routes, RouterModule} from  '@angular/router';
 import { DocumentsComponent } from './documents/documents.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { MessageListComponent } from './massages/message-list/message-list.component';
-import { DocumentEditComponent } from './documents/document-edit.component';
+import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 import { DocumentDetailComponent } from './documents/document-detail/document-detail.component';
 import { ContactsEditComponent } from './contacts/contacts-edit/contacts-edit.component';
 import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';

@@ -1,6 +1,6 @@
 import { NgModule, } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,7 @@ import { DocumentListComponent } from './documents/document-list/document-list.c
 import { DropdownDirective } from './header/dropDown.directive';
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 import { ContactsEditComponent } from './contacts/contacts-edit/contacts-edit.component';
+import {DndModule} from 'ng2-dnd';
 
 
 // import { ContactServiceComponent } from './contacts/contact.service.component';
@@ -52,7 +53,10 @@ import { ContactsEditComponent } from './contacts/contacts-edit/contacts-edit.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    DndModule.forRoot()
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
