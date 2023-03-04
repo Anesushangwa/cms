@@ -8,8 +8,7 @@ import { ContactService } from '../contact.service';
   styleUrls: ['./contact-details.component.css']
 })
 export class ContactDetailsComponent {
-
-@Input() contacts!: Contact;
+ contacts!: Contact;
 constructor(
   private contactService: ContactService,
   private router: Router,

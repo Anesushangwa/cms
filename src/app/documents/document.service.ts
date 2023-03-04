@@ -2,6 +2,8 @@ import { Injectable, EventEmitter} from '@angular/core';
 import {Document} from './document.model';
 import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
 import { Subject } from 'rxjs'; 
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,16 +13,43 @@ export class DocumentService {
 
   DocumentListChangeEvent = new Subject<Document[]>();
 
-private documents: Document [] = [];
-private maxDocumentId: number;
-  constructor() {
-    this.documents = MOCKDOCUMENTS;
-    this.maxDocumentId = this.getMaxId();
-   }
+// private documents: Document [] = [];
+// private maxDocumentId: number;
+//   constructor() {
+//     this.documents = MOCKDOCUMENTS;
+//     this.maxDocumentId = this.getMaxId();
+//    }
+
+
+   private documentsUrl =
+   'https://cms2023-e7639-default-rtdb.firebaseio.com/documents.json';
+ private documents: Document[] = [];
+ private maxDocumentId!: number;
+
+ constructor(private http: HttpClient) {}
 
 
 
+  // getDocuments(): Document[] {
+  //   return this.documents.slice();
+  // }
+
+  //#region "Firebase"
+  // GET REQUEST
   getDocuments(): Document[] {
+    this.http
+      .get<Document[]>(this.documentsUrl)
+      .subscribe((docs: Document[]) => {
+        this.documents = docs;
+        this.maxDocumentId = this.getMaxId();
+        this.documents.sort((a, b) => {
+          if (a < b) return -1;
+          if (a > b) return 1;
+          return 0;
+        });
+        this.documentChangedEvent.next(this.documents.slice());
+      });
+
     return this.documents.slice();
   }
 
@@ -40,17 +69,42 @@ private maxDocumentId: number;
   //   this.documents.splice(pos, 1);
   //   this.documentChangedEvent.emit(this.documents.slice());
   // }
-  deleteDocument(document: Document) {
-    if (!document) {
-       return;
-    }
-    const pos = this.documents.indexOf(document);
-    if (pos < 0) {
-       return;
-    }
-    this.documents.splice(pos, 1);
-    this.documentChangedEvent.emit(this.documents.slice());
- }
+//   deleteDocument(document: Document) {
+//     if (!document) {
+//        return;
+//     }
+//     const pos = this.documents.indexOf(document);
+//     if (pos < 0) {
+//        return;
+//     }
+//     this.documents.splice(pos, 1);
+//     this.documentChangedEvent.emit(this.documents.slice());
+//  }
+
+deleteDocument(document: Document) {
+  if (!document) return;
+  const pos = this.documents.indexOf(document);
+  if (pos < 0) return;
+  this.documents.splice(pos, 1);
+  this.storeDocuments();
+}
+
+
+  // PUT REQUEST
+  storeDocuments() {
+    this.http
+      .put(this.documentsUrl, JSON.stringify(this.documents), {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      })
+      .subscribe(() => {
+        this.documents.sort((a, b) => {
+          if (a < b) return -1;
+          if (a > b) return 1;
+          return 0;
+        });
+        this.documentChangedEvent.next(this.documents.slice());
+      });
+  }
 
    getMaxId(): number {
   let maxId = 0;
@@ -68,35 +122,31 @@ private maxDocumentId: number;
 
 
 
-addDocument(newDocument: Document) {
-  if (!newDocument) {
-    return;
+  //#region "CRUD"
+  addDocument(newDoc: Document) {
+    if (newDoc === null || newDoc === undefined) return;
+    this.maxDocumentId++;
+    newDoc.id = `${this.maxDocumentId}`;
+    this.documents.push(newDoc);
+    this.storeDocuments();
   }
+  
+  updateDocument(original: Document, newDoc: Document) {
+    if (
+      newDoc === null ||
+      newDoc === undefined ||
+      original === null ||
+      original === undefined
+    ) {
+      return;
+    }
+    const pos = this.documents.indexOf(original);
+    if (pos < 0) return;
 
-  this.maxDocumentId++;
-  newDocument.id = `${this.maxDocumentId}`;
-  this.documents.push(newDocument);
-
-  const documentsListClone = this.documents.slice();
-  this. DocumentListChangeEvent.next(documentsListClone);
-}
-
-updateDocument(original: Document,  newDocument: Document) {
-  if (
-    newDocument === null ||
-    newDocument === undefined ||
-    original === null ||
-    original === undefined
-  ) {
-    return;
+    newDoc.id = original.id;
+    this.documents[pos] = newDoc;
+    this.storeDocuments();
   }
-  const pos = this.documents.indexOf(original);
-  if (pos < 0) return;
-
-  newDocument.id = original.id;
-  this.documents[pos] =  newDocument;
-  this.DocumentListChangeEvent.next(this.documents.slice());
-}
 
 
 

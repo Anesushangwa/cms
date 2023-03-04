@@ -20,6 +20,7 @@ export class ContactListComponent   implements OnInit, OnDestroy  {
 // {contact_id:1 , name:'R.kent Jackson' ,email:'jacksonk@byui.edu', phone_Number:208-496-3771 ,imageUrl:'../assets/image/jacksonk.jpg'  ,group:'null' }];
 contacts: Contact[] = [];
 subscription!: Subscription;
+term: string = '';
 @Output() selectedContactEvent = new EventEmitter<Contact>();
 
 
@@ -47,5 +48,11 @@ ngOnInit(): void {
 ngOnDestroy(): void {
   this.subscription.unsubscribe();
 }
+
+search(value: string) {
+
+  this.term = value;
+  
+  }
 
 }

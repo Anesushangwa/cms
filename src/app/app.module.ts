@@ -20,6 +20,9 @@ import { DropdownDirective } from './header/dropDown.directive';
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 import { ContactsEditComponent } from './contacts/contacts-edit/contacts-edit.component';
 import {DndModule} from 'ng2-dnd';
+import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
+
+import { HttpClientModule } from '@angular/common/http';
 
 
 // import { ContactServiceComponent } from './contacts/contact.service.component';
@@ -44,6 +47,7 @@ import {DndModule} from 'ng2-dnd';
     DropdownDirective,
     DocumentEditComponent,
     ContactsEditComponent,
+    ContactsFilterPipe,
   
     // ContactServiceComponent 
    
@@ -55,6 +59,7 @@ import {DndModule} from 'ng2-dnd';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     DndModule.forRoot()
     
   ],

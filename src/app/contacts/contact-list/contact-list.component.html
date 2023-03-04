@@ -7,8 +7,26 @@
       <a routerLink="new" class="btn btn-success">New Contact</a>
     </div>
   </div>
+  <div class="col-xs-8">
+    <div class="input-group">
+      <input
+        class="form-control"
+        type="text"
+        (keyup)="search(searchBox.value)"
+        placeholder="Enter a search value"
+        #searchBox
+      />
+      <div class="input-group-addon input-search-btn">
+        <div
+          class="glyphicon glyphicon-search input-group-text"
+          (click)="search(searchBox.value)"
+        ></div>
+      </div>
+    </div>
+  </div>
   <div class="row contact-list-container">
     <div class="col-xs-12">
+      
       <app-contact-item
         *ngFor="let contact of contacts"
         [contacts]="contact"
